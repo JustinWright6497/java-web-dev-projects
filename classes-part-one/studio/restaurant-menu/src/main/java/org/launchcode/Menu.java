@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Menu {
-    private Date lastUpdated;
-    private ArrayList<MenuItem> items;
+    private ArrayList<MenuItem> menuItems = new ArrayList<>();
+    private Date date;
 
-    public Menu(Date d, ArrayList<MenuItem> i) {
-        this.lastUpdated = d;
-        this.items = i;
+    public Menu(ArrayList<MenuItem> menuItems, Date date) {
+        this.menuItems = menuItems;
+        this.date = date;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public ArrayList<MenuItem> getMenuItems() {
+        return menuItems;
     }
 
-    public void setItems(ArrayList<MenuItem> items) {
-        this.items = items;
+    public void setMenuItems(ArrayList<MenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
+    public Date getDate() {
+        return date;
     }
 
-    public ArrayList<MenuItem> getItems() {
-        return items;
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
