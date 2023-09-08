@@ -1,18 +1,18 @@
 package org.launchcode;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Menu {
-    private Date lastUpdated;
+    private LocalDate lastUpdated;
     private ArrayList<MenuItem> items;
 
-    public Menu(Date d, ArrayList<MenuItem> i) {
+    public Menu(LocalDate d, ArrayList<MenuItem> i) {
         this.lastUpdated = d;
         this.items = i;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
+    public void setLastUpdated(LocalDate lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 
@@ -20,13 +20,45 @@ public class Menu {
         this.items = items;
     }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
+    public void addItem(MenuItem menuItem) {
+        boolean itemExists = false;
+
+        for (MenuItem menuItem1 : this.items) {
+            if (menuItem1.equals(menuItem)) {
+                System.out.print("That item is already on the menu.\n\n");
+                itemExists = true;
+            }
+        }
+        if (!itemExists) {
+            this.items.add(menuItem);
+        }
     }
 
-    public ArrayList<MenuItem> getItems() {
-        return items;
+    public void removeItem(MenuItem menuItem) {
+        this.items.remove(menuItem);
+    }
+
+    public LocalDate getLastUpdated() {
+        return this.lastUpdated;
+    }
+
+    public void getItems() {
+        System.out.print("Menu:\n");
+        for (MenuItem menuItem : this.items) {
+            System.out.print(menuItem.toString());
+        }
+    }
+
+    public void getItem() {
+        int itemIdx = 2;
+        int currentIdx = 0;
+        for (MenuItem menuItem : this.items) {
+            if (itemIdx == currentIdx) {
+                System.out.print(menuItem.toString());
+                currentIdx++;
+            } else {
+                currentIdx++;
+            }
+        }
     }
 }
-
-
